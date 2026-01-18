@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
 :root {
+  /* Brand Colors */
+  --tines-purple: #7D66D9;
+  --tines-mint: #C1EAD9;
+  --tines-peach: #F9E2D2;
+  --tines-forest: #1A332A;
+  
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  
+  --color-purple-500: var(--tines-purple);
+  --color-mint-500: var(--tines-mint);
+  --color-peach-500: var(--tines-peach);
+  --color-forest-900: var(--tines-forest);
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Custom Utilities */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
