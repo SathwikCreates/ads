@@ -23,7 +23,7 @@ export function Footer() {
                 { name: "By Industry", href: "/solutions" },
                 { name: "By Role", href: "/roles" },
                 { name: "Customers", href: "/customers" },
-                { name: "Case Studies", href: "/case-studies" },
+
             ],
         },
         {

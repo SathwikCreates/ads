@@ -37,7 +37,7 @@ export function CookieBanner() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 50, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed bottom-6 right-6 z-50 max-w-sm w-full"
+                    className="hidden md:block fixed bottom-6 right-6 z-50 max-w-sm w-full"
                 >
                     <div className="bg-white/80 backdrop-blur-xl border border-white/50 p-6 rounded-[2rem] shadow-2xl relative overflow-hidden">
                         {/* Decorative background glow */}

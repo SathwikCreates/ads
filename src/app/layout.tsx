@@ -24,7 +24,7 @@ import { Tiles } from "@/components/ui/tiles";
 
 // ... existing imports
 
-import { MobileMenu } from "@/components/mobile-dock";
+
 import { Footer } from "@/components/footer";
 // import { GlobalMenu } from "@/components/global-menu"; // Removing old global menuner";
 
@@ -48,7 +48,6 @@ export default function RootLayout({
           {children}
         </div>
         <CookieBanner />
-        <MobileMenu />
       </body>
     </html>
   );

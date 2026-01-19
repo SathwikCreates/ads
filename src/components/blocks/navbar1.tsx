@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Book, Menu, Sunset, Trees, Zap, ArrowUpRight, Mail, Newspaper, Target, Layers, Shield, Users, BarChart, Globe, LifeBuoy } from "lucide-react";
-import { motion } from "framer-motion";
+import { Book, Menu, Sunset, Trees, Zap, ArrowUpRight, Mail, Newspaper, Target, Layers, Shield, Users, BarChart, Globe, LifeBuoy, X, Building2, Share2, Circle, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
     Accordion,
@@ -19,13 +19,6 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "@/components/ui/sheet";
 
 interface MenuItem {
     title: string;
@@ -58,6 +51,64 @@ interface Navbar1Props {
         };
     };
 }
+
+const MOBILE_NAV_ITEMS = [
+    {
+        title: "PLATFORM",
+        icon: Layers,
+        items: [
+            { name: "How it Works", href: "/mission" },
+            { name: "The Platform", href: "/platform" },
+            { name: "Enterprise", href: "/enterprise" },
+            { name: "Security", href: "/security" },
+            { name: "Integrations", href: "/integrations" },
+            { name: "Pricing", href: "/pricing" },
+        ],
+    },
+    {
+        title: "SOLUTIONS",
+        icon: Zap,
+        items: [
+            { name: "By Industry", href: "/solutions" },
+            { name: "By Role", href: "/roles" },
+            { name: "Customers", href: "/customers" },
+
+        ],
+    },
+    {
+        title: "RESOURCES",
+        icon: Book,
+        items: [
+            { name: "Blog", href: "/blog" },
+            { name: "Newsroom", href: "/newsroom" },
+            { name: "Community", href: "/community" },
+            { name: "Help Center", href: "/help" },
+            { name: "Store", href: "/store" },
+        ],
+    },
+    {
+        title: "COMPANY",
+        icon: Building2,
+        items: [
+            { name: "About us", href: "/about" },
+            { name: "Careers", href: "/careers" },
+            { name: "Contact", href: "/contact" },
+            { name: "Terms of Service", href: "/terms" },
+            { name: "Privacy Policy", href: "/terms#privacy" },
+            { name: "Cookie Policy", href: "/cookies" },
+        ],
+    },
+    {
+        title: "CONNECT",
+        icon: Share2,
+        items: [
+            { name: "Slack Community ↗", href: "/community" },
+            { name: "LinkedIn ↗", href: "#" },
+            { name: "Twitter ↗", href: "#" },
+            { name: "YouTube ↗", href: "#" },
+        ],
+    },
+];
 
 const Navbar1 = ({
     logo = {
@@ -106,8 +157,10 @@ const Navbar1 = ({
         signup: { text: "Get started", url: "/signup" },
     },
 }: Navbar1Props) => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
     return (
-        <section className="py-6 fixed top-0 w-full z-50 transition-all pointer-events-none">
+        <section className={`py-6 fixed top-0 w-full z-50 transition-all pointer-events-none ${isMobileMenuOpen ? "bg-white/95 backdrop-blur-md h-screen" : ""}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 
@@ -135,8 +188,6 @@ const Navbar1 = ({
                                 {menu.map((item) => renderMenuItem(item))}
                             </NavigationMenuList>
                         </NavigationMenu>
-
-
                     </div>
 
                     {/* Right: Auth & CTA */}
@@ -148,12 +199,85 @@ const Navbar1 = ({
                         </Button>
                     </div>
 
-                    {/* Mobile Toggle Removed - Replaced by Global Circle Menu */}
-                    <div className="block lg:hidden w-6" /> {/* Spacer to keep layout if needed, or just remove */}
+                    {/* Mobile Toggle */}
+                    <div className="flex items-center lg:hidden gap-4">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="relative z-50"
+                        >
+                            {isMobileMenuOpen ? (
+                                <X className="w-6 h-6" />
+                            ) : (
+                                <Menu className="w-6 h-6" />
+                            )}
+                        </Button>
+                    </div>
 
                 </nav>
+
+                {/* Mobile Dropdown */}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="lg:hidden absolute top-[80px] left-0 w-full bg-[#FAFAFA]/80 backdrop-blur-3xl border-b border-gray-200/50 shadow-2xl shadow-slate-200/50 px-6 pb-8 pt-4 flex flex-col gap-6 pointer-events-auto"
+                        >
+                            <Accordion type="single" collapsible className="w-full">
+                                {MOBILE_NAV_ITEMS.map((section) => (
+                                    <AccordionItem key={section.title} value={section.title} className="border-b border-gray-100 last:border-0 border-white/5">
+                                        <AccordionTrigger className="text-base font-semibold text-slate-900 group hover:text-purple-600 hover:no-underline py-4 px-2 rounded-lg transition-colors hover:bg-white/50">
+                                            <div className="flex items-center gap-3">
+                                                <div className="p-2 bg-purple-50 rounded-md text-purple-600 group-hover:bg-purple-100 transition-colors">
+                                                    <section.icon className="w-5 h-5" />
+                                                </div>
+                                                <span className="tracking-wide uppercase text-xs text-slate-500 font-bold group-hover:text-purple-600 transition-colors">
+                                                    {section.title}
+                                                </span>
+                                            </div>
+                                        </AccordionTrigger>
+                                        <AccordionContent className="flex flex-col gap-1 pl-4 pb-4">
+                                            {section.items.map((link) => (
+                                                <a
+                                                    key={link.name}
+                                                    href={link.href}
+                                                    className="group flex items-center justify-between py-2.5 px-3 rounded-md text-slate-600 hover:text-slate-900 hover:bg-white/60 transition-all ml-3 border-l-2 border-transparent hover:border-purple-200"
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                >
+                                                    <span className="text-sm font-medium">{link.name}</span>
+                                                    <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-purple-400" />
+                                                </a>
+                                            ))}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+
+                            <div className="flex flex-col gap-3 mt-4">
+                                <a
+                                    href={auth.login.url}
+                                    className="w-full inline-flex h-12 items-center justify-center rounded-lg border border-transparent bg-transparent px-4 text-base font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {auth.login.text}
+                                </a>
+                                <a
+                                    href={auth.signup.url}
+                                    className="w-full inline-flex h-12 items-center justify-center rounded-lg bg-slate-900 px-4 text-base font-medium text-white shadow-lg shadow-purple-500/20 transition-colors hover:bg-slate-800"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {auth.signup.text}
+                                </a>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
-        </section>
+        </section >
     );
 };
 
