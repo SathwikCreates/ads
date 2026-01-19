@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 
 const links = [
     { name: "Platform", href: "/platform" },
-    { name: "Solutions", href: "#" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Security", href: "/security" },
     { name: "Pricing", href: "/pricing" },
-    { name: "Resources", href: "#" },
-    { name: "Company", href: "/about" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -36,14 +36,18 @@ export function Navbar() {
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                        T
+                    <div className="relative w-10 h-10">
+                        <img
+                            src="/logo.png"
+                            alt="AI Ad Coach"
+                            className="w-full h-full object-contain brightness-0"
+                        />
                     </div>
-                    <span className="text-xl font-bold font-serif tracking-tight">Tines</span>
+                    <span className="text-xl font-bold font-serif tracking-tight">AI Ad Coach</span>
                 </Link>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-6 lg:gap-8">
                     {links.map((link) => (
                         <Link
                             key={link.name}
@@ -61,16 +65,16 @@ export function Navbar() {
                         <Search className="w-5 h-5" />
                     </button>
                     <Link
-                        href="#"
-                        className="hidden md:block text-sm font-medium text-gray-900 hover:text-purple-500 transition-colors"
+                        href="/login"
+                        className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
                     >
-                        Sign In
+                        Log in
                     </Link>
                     <Link
-                        href="#"
-                        className="bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all hover:scale-105"
+                        href="/signup"
+                        className="inline-flex h-9 items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50"
                     >
-                        Try Tines for free
+                        Sign up
                     </Link>
                 </div>
             </div>

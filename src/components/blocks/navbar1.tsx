@@ -1,0 +1,490 @@
+"use client";
+
+import * as React from "react";
+import { Book, Menu, Sunset, Trees, Zap, ArrowUpRight, Mail, Newspaper, Target, Layers, Shield, Users, BarChart, Globe, LifeBuoy } from "lucide-react";
+import { motion } from "framer-motion";
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet";
+
+interface MenuItem {
+    title: string;
+    url: string;
+    description?: string;
+    icon?: React.ReactNode;
+    items?: MenuItem[];
+}
+
+interface Navbar1Props {
+    logo?: {
+        url: string;
+        src: string;
+        alt: string;
+        title: string;
+    };
+    menu?: MenuItem[];
+    mobileExtraLinks?: {
+        name: string;
+        url: string;
+    }[];
+    auth?: {
+        login: {
+            text: string;
+            url: string;
+        };
+        signup: {
+            text: string;
+            url: string;
+        };
+    };
+}
+
+const Navbar1 = ({
+    logo = {
+        url: "/",
+        src: "/logo.png",
+        alt: "Ads",
+        title: "Ads",
+    },
+    menu = [
+        { title: "Platform", url: "/platform" },
+        {
+            title: "Solutions",
+            url: "/solutions",
+            items: [
+                { title: "By Industry", url: "/solutions", icon: <Trees className="size-4" /> },
+            ],
+        },
+        {
+            title: "Resources",
+            url: "#",
+            items: [
+                { title: "Blog", url: "/blog", icon: <Book className="size-4" /> },
+                { title: "Docs", url: "/help", icon: <Zap className="size-4" /> },
+            ],
+        },
+        {
+            title: "Company",
+            url: "#",
+            items: [
+                { title: "About", url: "/about", icon: <Trees className="size-4" /> },
+                { title: "Careers", url: "/careers", icon: <Sunset className="size-4" /> },
+            ],
+        },
+
+        {
+            title: "Pricing",
+            url: "/pricing",
+        },
+    ],
+    mobileExtraLinks = [
+        { name: "Pricing", url: "/pricing" },
+        { name: "Contact", url: "/contact" },
+    ],
+    auth = {
+        login: { text: "Sign in", url: "/login" },
+        signup: { text: "Get started", url: "/signup" },
+    },
+}: Navbar1Props) => {
+    return (
+        <section className="py-6 fixed top-0 w-full z-50 transition-all pointer-events-none">
+            <div className="container mx-auto px-6 pointer-events-auto">
+                <nav className="flex items-center justify-between">
+
+                    {/* Left: Logo (Implicitly on left, though cropped in screenshot) */}
+                    <div className="flex items-center gap-2">
+                        {/* Keep existing logo logic but maybe make it white to match Hero */}
+                        <a href={logo.url} className="flex items-center gap-2 group">
+                            <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
+                                <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <img
+                                    src="/logo.png"
+                                    alt={logo.alt}
+                                    className="w-full h-full object-contain brightness-0"
+                                />
+                            </div>
+                            {/* Text hidden on mobile, or white */}
+                            <span className="hidden md:block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900">{logo.title}</span>
+                        </a>
+                    </div>
+
+                    {/* Center: Capsule Navigation */}
+                    <div className="hidden lg:flex items-center bg-white/40 backdrop-blur-xl border border-white/30 rounded-full py-1.5 px-6 shadow-sm">
+                        <NavigationMenu>
+                            <NavigationMenuList className="gap-1">
+                                {menu.map((item) => renderMenuItem(item))}
+                            </NavigationMenuList>
+                        </NavigationMenu>
+
+
+                    </div>
+
+                    {/* Right: Auth & CTA */}
+                    <div className="hidden lg:flex items-center gap-6">
+                        <a href={auth.login.url} className="text-slate-700 hover:text-slate-900 font-medium text-sm transition-colors">{auth.login.text}</a>
+
+                        <Button asChild size="sm" className="bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-md px-5 h-9 shadow-md">
+                            <a href={auth.signup.url}>{auth.signup.text}</a>
+                        </Button>
+                    </div>
+
+                    {/* Mobile Toggle Removed - Replaced by Global Circle Menu */}
+                    <div className="block lg:hidden w-6" /> {/* Spacer to keep layout if needed, or just remove */}
+
+                </nav>
+            </div>
+        </section>
+    );
+};
+
+const renderMenuItem = (item: MenuItem) => {
+    // Special handling for the "Company" Mega Menu
+    if (item.title === "Company") {
+        return (
+            <NavigationMenuItem key={item.title}>
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                    {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+
+                        {/* Column 1: Join the Team */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Join the Team</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/careers">Careers</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Join a world-class team and make an impact.</p>
+
+                            {/* Illustration Placeholder */}
+                            <div className="mt-auto relative h-32 w-full">
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+                                <div className="absolute bottom-4 right-4 w-20 h-20 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+                                <div className="absolute bottom-10 left-10 w-20 h-20 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+                                {/* Fun geometry */}
+                                <div className="relative z-10 flex items-end justify-center h-full">
+                                    <Sunset className="w-16 h-16 text-slate-800 rotate-12 opacity-80" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Column 2: Company */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Company</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/about">About</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">We power the world's most important workflows.</p>
+
+                            {/* Illustration Placeholder */}
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                {/* Fun geometry */}
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                >
+                                    <Trees className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                </motion.div>
+                            </div>
+                        </div>
+
+                        {/* Column 3: Store & Links */}
+                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                    <a href="/store">Ads Store</a> <ArrowUpRight className="w-4 h-4 opacity-50" />
+                                </h3>
+                                <p className="text-slate-600 text-sm">Useful, beautiful products from Ads and friends.</p>
+                                <div className="mt-4 flex justify-end">
+                                    <div className="w-16 h-10 bg-purple-200 rounded-lg shadow-inner flex items-center justify-center">
+                                        <div className="w-6 h-6 bg-purple-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-1 mt-auto">
+                                <a href="/contact" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Mail className="w-4 h-4" /></div>
+                                    Contact
+                                </a>
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
+                                    Slack Community <span className="text-[10px] opacity-50">↗</span>
+                                </a>
+                                <a href="/newsroom" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Newspaper className="w-4 h-4" /></div>
+                                    Newsroom
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+        );
+    }
+
+    // Platform Mega Menu
+    if (item.title === "Platform") {
+        return (
+            <NavigationMenuItem key={item.title}>
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                    {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                        {/* Col 1: The Core */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">The Core</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/platform">Engine</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-4 text-sm">Automate your ad operations with precision.</p>
+
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/mission">Mission</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">What does Ads actually do?</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 4, repeat: Infinity }}>
+                                    <Target className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                </motion.div>
+                            </div>
+                        </div>
+                        {/* Col 2: Integrations */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Connect</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/integrations">Integrate</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Sync with your favorite marketing tools.</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <motion.div animate={{ rotate: 180 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+                                    <Layers className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                </motion.div>
+                            </div>
+                        </div>
+                        {/* Col 3: Enterprise */}
+                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                    <a href="/enterprise">Enterprise</a> <Shield className="w-4 h-4 opacity-50" />
+                                </h3>
+                                <p className="text-slate-600 text-sm">Security, SSO, and dedicated support.</p>
+                            </div>
+                            <div className="space-y-1 mt-auto">
+                                <a href="/security" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Shield className="w-4 h-4" /></div>
+                                    Security Portal
+                                </a>
+                                <a href="/pricing" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
+                                    View Pricing
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+        );
+    }
+
+    // Solutions Mega Menu
+    if (item.title === "Solutions") {
+        return (
+            <NavigationMenuItem key={item.title}>
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                    {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                        {/* Col 1: Industries */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">By Industry</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/solutions">Verticals</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Tailored solutions for retail, auto, and more.</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <Trees className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                            </div>
+                        </div>
+                        {/* Col 2: Teams */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">By Team</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/roles">Roles</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">For Marketing, Data, and Ops leaders.</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <Users className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                            </div>
+                        </div>
+                        {/* Col 3: Success */}
+                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                    <a href="/customers">Results</a> <BarChart className="w-4 h-4 opacity-50" />
+                                </h3>
+                                <p className="text-slate-600 text-sm">See how others grow 3x faster.</p>
+                            </div>
+                            <div className="space-y-1 mt-auto">
+                                <a href="/solutions" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Trees className="w-4 h-4" /></div>
+                                    All Industries
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+        );
+    }
+
+    // Resources Mega Menu
+    if (item.title === "Resources") {
+        return (
+            <NavigationMenuItem key={item.title}>
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                    {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                        {/* Col 1: Learn */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Learn</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/blog">Blog</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Insights, trends, and product updates.</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <Book className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                            </div>
+                        </div>
+                        {/* Col 2: Support */}
+                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Support</div>
+                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                                <a href="/help">Help</a>
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Documentation and API references.</p>
+                            <div className="mt-auto relative h-32 w-full flex items-center justify-center">
+                                <LifeBuoy className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                            </div>
+                        </div>
+                        {/* Col 3: Community */}
+                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                    <a href="/community">Community</a> <Globe className="w-4 h-4 opacity-50" />
+                                </h3>
+                                <p className="text-slate-600 text-sm">Join thousands of ad experts.</p>
+                            </div>
+                            <div className="space-y-1 mt-auto">
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                    <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
+                                    Join Slack
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+        );
+    }
+
+    // Fallback for any other dropdowns (should vary rarely be hit now)
+    if (item.items) {
+        return (
+            <NavigationMenuItem key={item.title}>
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                    {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                    <ul className="w-64 p-2 bg-white/95 backdrop-blur-xl border border-slate-200/50 rounded-xl shadow-xl">
+                        {item.items.map((subItem) => (
+                            <li key={subItem.title}>
+                                <a className="flex select-none gap-3 rounded-lg p-2.5 leading-none no-underline outline-none transition-colors hover:bg-pink-50 hover:text-pink-700" href={subItem.url}>
+                                    <div className="text-pink-500/70">{subItem.icon}</div>
+                                    <div>
+                                        <div className="text-sm font-semibold text-slate-800">{subItem.title}</div>
+                                    </div>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+        );
+    }
+
+    // Standard Link
+    return (
+        <a
+            key={item.title}
+            className="group inline-flex h-8 items-center justify-center rounded-full bg-transparent px-3 text-sm font-medium text-slate-700 transition-colors hover:bg-black/5 hover:text-slate-900"
+            href={item.url}
+        >
+            {item.title}
+        </a>
+    );
+};
+
+const renderMobileMenuItem = (item: MenuItem) => {
+    if (item.items) {
+        return (
+            <AccordionItem key={item.title} value={item.title} className="border-b-0">
+                <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+                    {item.title}
+                </AccordionTrigger>
+                <AccordionContent className="mt-2">
+                    {item.items.map((subItem) => (
+                        <a
+                            key={subItem.title}
+                            className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+                            href={subItem.url}
+                        >
+                            {subItem.icon}
+                            <div>
+                                <div className="text-sm font-semibold">{subItem.title}</div>
+                                {subItem.description && (
+                                    <p className="text-sm leading-snug text-muted-foreground">
+                                        {subItem.description}
+                                    </p>
+                                )}
+                            </div>
+                        </a>
+                    ))}
+                </AccordionContent>
+            </AccordionItem>
+        );
+    }
+
+    return (
+        <a key={item.title} href={item.url} className="font-semibold">
+            {item.title}
+        </a>
+    );
+};
+
+export { Navbar1 };

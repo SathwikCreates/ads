@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,9 +16,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Tines | The smart workflow platform",
-  description: "Tines is the smart workflow platform used by security and operations teams to automate manual tasks.",
+  title: "Ads | Intelligent Advertising Optimization",
+  description: "Transform your advertising strategy with AI-powered optimization. Unify data, generate content, and drive ROI.",
 };
+
+import { Tiles } from "@/components/ui/tiles";
+
+// ... existing imports
+
+import { MobileMenu } from "@/components/mobile-dock";
+import { Footer } from "@/components/footer";
+// import { GlobalMenu } from "@/components/global-menu"; // Removing old global menuner";
+
+import { Navbar1 } from "@/components/blocks/navbar1";
+import { CookieBanner } from "@/components/ui/cookie-banner";
 
 export default function RootLayout({
   children,
@@ -26,10 +38,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased`}
-      >
-        {children}
+      <body className={cn(
+        "min-h-screen bg-tines-lavender font-sans antialiased pb-32 md:pb-0",
+        inter.variable,
+        playfair.variable
+      )} suppressHydrationWarning>
+        <Navbar1 />
+        <div className="relative z-10">
+          {children}
+        </div>
+        <CookieBanner />
+        <MobileMenu />
       </body>
     </html>
   );

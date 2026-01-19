@@ -1,24 +1,43 @@
 @import "tailwindcss";
 
+/* Tines.com Exact Replica Variables */
 :root {
-  /* Brand Colors */
-  --tines-purple: #7D66D9;
-  --tines-mint: #C1EAD9;
-  --tines-peach: #F9E2D2;
-  --tines-forest: #1A332A;
-  
+  --tines-violet: #8D75E6;
+  --tines-mint: #D6EDE9;
+  --tines-peach: #FEEDE0;
+  --tines-lavender: #F3ECF7;
+  --tines-forest: #195642;
+  --tines-dark-text: #195642;
+  --tile: var(--tines-violet);
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--tines-dark-text);
 }
 
-@theme {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
-  
-  --color-purple-500: var(--tines-purple);
-  --color-mint-500: var(--tines-mint);
-  --color-peach-500: var(--tines-peach);
-  --color-forest-900: var(--tines-forest);
+
+
+:root {
+  /* ... existing vars ... */
+  --tines-violet: #8D75E6;
+  --tines-mint: #D6EDE9;
+  --tines-peach: #FEEDE0;
+  --tines-lavender: #F3ECF7;
+  --tines-forest: #195642;
+  --tines-dark-text: #195642;
+  --tile: var(--tines-violet);
+
+  --background: #F0EBFA;
+  --foreground: var(--tines-dark-text);
+
+  /* New Lavender/Amethyst Palette */
+  --color-deep-amethyst: #10002b;
+  --color-dark-amethyst: #240046;
+  --color-indigo-ink: #3c096c;
+  --color-indigo-velvet: #5a189a;
+  --color-royal-violet: #7b2cbf;
+  --color-lavender-purple: #9d4edd;
+  --color-mauve-magic: #c77dff;
+  --color-mauve: #e0aaff;
 }
 
 body {
@@ -27,12 +46,115 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-/* Custom Utilities */
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
+}
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --color-tines-violet: var(--tines-violet);
+  --color-tines-mint: var(--tines-mint);
+  --color-tines-peach: var(--tines-peach);
+  --color-tines-lavender: var(--tines-lavender);
+  --color-tines-forest: var(--tines-forest);
+
+  /* New Palette Registration */
+  --color-deep-amethyst: var(--color-deep-amethyst);
+  --color-dark-amethyst: var(--color-dark-amethyst);
+  --color-indigo-ink: var(--color-indigo-ink);
+  --color-indigo-velvet: var(--color-indigo-velvet);
+  --color-royal-violet: var(--color-royal-violet);
+  --color-lavender-purple: var(--color-lavender-purple);
+  --color-mauve-magic: var(--color-mauve-magic);
+  --color-mauve: var(--color-mauve);
+}
+
+.tines-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(25, 86, 66, 0.1);
+  box-shadow: 0 4px 12px rgba(25, 86, 66, 0.05);
+  border-radius: 12px;
+}
+
+/* Rich Visuals */
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+/* Page Backgrounds - Atmospheric Gradients */
+.bg-tines-violet {
+  background: radial-gradient(circle at 50% 0%, #9F8BEB 0%, #8D75E6 40%, #765CD6 100%);
+}
+
+.bg-tines-mint {
+  background: radial-gradient(circle at 60% 0%, #E6F7F3 0%, #D6EDE9 50%, #F5FBF9 100%);
+}
+
+.bg-tines-peach {
+  background: radial-gradient(circle at 50% 0%, #FFF6EF 0%, #FEEDE0 50%, #FFFCFA 100%);
+}
+
+.bg-tines-lavender {
+  background-color: #F3ECF7;
+  background-image: radial-gradient(circle at 50% 0%, #FAF5FC 0%, #F3ECF7 60%, #F3ECF7 100%);
+}
+
+.shine-border {
+  position: relative;
+}
+
+.shine-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 @layer utilities {
