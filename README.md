@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ads | Intelligent Advertising Optimization
 
-## Getting Started
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.4-cyan)
 
-First, run the development server:
+**Ads** is a next-generation marketing platform interface built with a **Gen-Z / Y2K Minimalist** aesthetic. It prioritizes massive typography, deep noise textures, glassmorphism, and fluid performance on all devices (mobile-first).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Gen-Z Aesthetic:** Massive serif typography (`8xl`+), acid green/neon accents, and retro-futurist vibes.
+- **Glassmorphism:** Frosted glass cards and UI elements using `backdrop-blur` and white transparency.
+- **Mobile-First Navigation:** "Minimal Floating Dock" menu inspired by iOS, optimized for iPhone SE and up.
+- **Performance:** Hardware-accelerated animations (Framer Motion) and optimized WebGL elements.
+- **Security Portal:** A dedicated, cyber-styled Transparency Center (`/security`) with compliance badges.
+- **Pricing Engine:** Responsive pricing grid supporting Base, Premium, Enterprise, and Custom tiers.
+- **Legal Hub:** Centralized Terms, Privacy, and AUP documentation with sticky navigation (`/terms`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- **3D Elements:** [Cobe](https://github.com/shuding/cobe) (Globe)
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/SathwikCreates/ads.git
+    cd ads
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+4.  **Open locally:**
+    Navigate to [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/src/app` - App Router pages (Mental model: URL structure).
+- `/src/components` - Reusable UI components.
+  - `/blocks` - Large distinctive sections (Hero, Navbar, Logos).
+  - `/ui` - Atomic shadcn/ui components.
+- `/public` - Static assets (images, loops).
+
+## 🎨 Theme System
+
+- **Primary:** Slate-900 (Dark) / White (Light)
+- **Accents:** Lime-400, Purple-500, Cyber Blue.
+- **Typography:** Inter (Sans) + Serif (Display).
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
