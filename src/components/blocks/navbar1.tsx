@@ -287,35 +287,35 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
 
                         {/* Column 1: Join the Team */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Join the Team</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Join the Team</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/careers">Careers</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Join a world-class team and make an impact.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">Join a world-class team and make an impact.</p>
 
                             {/* Illustration Placeholder */}
                             <div className="mt-auto relative h-32 w-full">
-                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-                                <div className="absolute bottom-4 right-4 w-20 h-20 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-                                <div className="absolute bottom-10 left-10 w-20 h-20 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500 rounded-full mix-blend-screen filter blur-xl opacity-10 animate-blob"></div>
+                                <div className="absolute bottom-4 right-4 w-20 h-20 bg-indigo-500 rounded-full mix-blend-screen filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+                                <div className="absolute bottom-10 left-10 w-20 h-20 bg-mauve-magic rounded-full mix-blend-screen filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
                                 {/* Fun geometry */}
                                 <div className="relative z-10 flex items-end justify-center h-full">
-                                    <Sunset className="w-16 h-16 text-slate-800 rotate-12 opacity-80" />
+                                    <Sunset className="w-16 h-16 text-purple-200 rotate-12 opacity-60" />
                                 </div>
                             </div>
                         </div>
 
                         {/* Column 2: Company */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Company</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Company</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/about">About</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">We power the world's most important workflows.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">We power the world's most important workflows.</p>
 
                             {/* Illustration Placeholder */}
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
@@ -324,35 +324,35 @@ const renderMenuItem = (item: MenuItem) => {
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                                 >
-                                    <Trees className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                    <Trees className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                                 </motion.div>
                             </div>
                         </div>
 
                         {/* Column 3: Store & Links */}
-                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                        <div className="w-1/3 p-8 flex flex-col bg-[#1a0035]/50">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                <h3 className="text-2xl font-serif text-white mb-1 flex items-center gap-2 group cursor-pointer hover:text-purple-400 transition-colors">
                                     <a href="/store">Ads Store</a> <ArrowUpRight className="w-4 h-4 opacity-50" />
                                 </h3>
-                                <p className="text-slate-600 text-sm">Useful, beautiful products from Ads and friends.</p>
+                                <p className="text-slate-300 text-sm">Useful, beautiful products from Ads and friends.</p>
                                 <div className="mt-4 flex justify-end">
-                                    <div className="w-16 h-10 bg-purple-200 rounded-lg shadow-inner flex items-center justify-center">
-                                        <div className="w-6 h-6 bg-purple-500 rounded-full"></div>
+                                    <div className="w-16 h-10 bg-deep-amethyst rounded-lg shadow-inner flex items-center justify-center border border-white/5">
+                                        <div className="w-6 h-6 bg-purple-500 rounded-full shadow-[0_0_10px_rgba(168,85,247,0.4)]"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="space-y-1 mt-auto">
-                                <a href="/contact" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/contact" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Mail className="w-4 h-4" /></div>
                                     Contact
                                 </a>
-                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     Slack Community <span className="text-[10px] opacity-50">↗</span>
                                 </a>
-                                <a href="/newsroom" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/newsroom" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Newspaper className="w-4 h-4" /></div>
                                     Newsroom
                                 </a>
@@ -373,52 +373,52 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
                         {/* Col 1: The Core */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">The Core</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">The Core</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/platform">Engine</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-4 text-sm">Automate your ad operations with precision.</p>
+                            <p className="text-slate-300 leading-relaxed mb-4 text-sm">Automate your ad operations with precision.</p>
 
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/mission">Mission</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">What does Ads actually do?</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">What does Ads actually do?</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
                                 <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 4, repeat: Infinity }}>
-                                    <Target className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                    <Target className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                                 </motion.div>
                             </div>
                         </div>
                         {/* Col 2: Integrations */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Connect</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Connect</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/integrations">Integrate</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Sync with your favorite marketing tools.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">Sync with your favorite marketing tools.</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
                                 <motion.div animate={{ rotate: 180 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-                                    <Layers className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                    <Layers className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                                 </motion.div>
                             </div>
                         </div>
                         {/* Col 3: Enterprise */}
-                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                        <div className="w-1/3 p-8 flex flex-col bg-[#1a0035]/50">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                <h3 className="text-2xl font-serif text-white mb-1 flex items-center gap-2 group cursor-pointer hover:text-purple-400 transition-colors">
                                     <a href="/enterprise">Enterprise</a> <Shield className="w-4 h-4 opacity-50" />
                                 </h3>
-                                <p className="text-slate-600 text-sm">Security, SSO, and dedicated support.</p>
+                                <p className="text-slate-300 text-sm">Security, SSO, and dedicated support.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/security" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/security" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Shield className="w-4 h-4" /></div>
                                     Security Portal
                                 </a>
-                                <a href="/pricing" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/pricing" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     View Pricing
                                 </a>
@@ -438,39 +438,39 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
                         {/* Col 1: Industries */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">By Industry</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">By Industry</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/solutions">Verticals</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Tailored solutions for retail, auto, and more.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">Tailored solutions for retail, auto, and more.</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
-                                <Trees className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                <Trees className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                             </div>
                         </div>
                         {/* Col 2: Teams */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">By Team</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">By Team</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/roles">Roles</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">For Marketing, Data, and Ops leaders.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">For Marketing, Data, and Ops leaders.</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
-                                <Users className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                <Users className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                             </div>
                         </div>
                         {/* Col 3: Success */}
-                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                        <div className="w-1/3 p-8 flex flex-col bg-[#1a0035]/50">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                <h3 className="text-2xl font-serif text-white mb-1 flex items-center gap-2 group cursor-pointer hover:text-purple-400 transition-colors">
                                     <a href="/customers">Results</a> <BarChart className="w-4 h-4 opacity-50" />
                                 </h3>
-                                <p className="text-slate-600 text-sm">See how others grow 3x faster.</p>
+                                <p className="text-slate-300 text-sm">See how others grow 3x faster.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/solutions" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/solutions" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Trees className="w-4 h-4" /></div>
                                     All Industries
                                 </a>
@@ -490,39 +490,39 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-[#FFEFF1] rounded-2xl shadow-2xl overflow-hidden flex font-sans">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
                         {/* Col 1: Learn */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Learn</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Learn</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/blog">Blog</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Insights, trends, and product updates.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">Insights, trends, and product updates.</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
-                                <Book className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                <Book className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                             </div>
                         </div>
                         {/* Col 2: Support */}
-                        <div className="w-1/3 p-8 border-r border-[#EACCCF]/50 flex flex-col relative group">
-                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-4">Support</div>
-                            <h3 className="text-3xl font-serif text-slate-900 mb-2 group-hover:text-pink-600 transition-colors cursor-pointer">
+                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Support</div>
+                            <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/help">Help</a>
                             </h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-sm">Documentation and API references.</p>
+                            <p className="text-slate-300 leading-relaxed mb-8 text-sm">Documentation and API references.</p>
                             <div className="mt-auto relative h-32 w-full flex items-center justify-center">
-                                <LifeBuoy className="w-20 h-20 text-slate-800 opacity-80" strokeWidth={1} />
+                                <LifeBuoy className="w-20 h-20 text-purple-200 opacity-60" strokeWidth={1} />
                             </div>
                         </div>
                         {/* Col 3: Community */}
-                        <div className="w-1/3 p-8 flex flex-col bg-[#FFEFF1]">
+                        <div className="w-1/3 p-8 flex flex-col bg-[#1a0035]/50">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-serif text-slate-900 mb-1 flex items-center gap-2 group cursor-pointer hover:text-pink-600 transition-colors">
+                                <h3 className="text-2xl font-serif text-white mb-1 flex items-center gap-2 group cursor-pointer hover:text-purple-400 transition-colors">
                                     <a href="/community">Community</a> <Globe className="w-4 h-4 opacity-50" />
                                 </h3>
-                                <p className="text-slate-600 text-sm">Join thousands of ad experts.</p>
+                                <p className="text-slate-300 text-sm">Join thousands of ad experts.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-pink-600 py-3 border-t border-[#EACCCF]/50 transition-colors">
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     Join Slack
                                 </a>
