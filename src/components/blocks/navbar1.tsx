@@ -167,9 +167,11 @@ const Navbar1 = ({
                     {/* Left: Logo */}
                     <div className="flex items-center gap-2">
                         <a href={logo.url} className="flex items-center gap-2 group">
-                            <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-purple-600 to-blue-600 rounded-xl text-white shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform duration-300">
-                                <Sparkles className="w-5 h-5 fill-white" />
-                            </div>
+                            <img
+                                src="/logo.png"
+                                alt={logo.alt}
+                                className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform duration-300 group-hover:scale-110"
+                            />
                             <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 group-hover:text-purple-600 transition-colors uppercase">{logo.title}</span>
                         </a>
                     </div>
