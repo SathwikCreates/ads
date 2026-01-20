@@ -168,7 +168,7 @@ const Navbar1 = ({
                     <div className="flex items-center gap-2">
                         {/* Keep existing logo logic but maybe make it white to match Hero */}
                         <a href={logo.url} className="flex items-center gap-2 group">
-                            <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
+                            <div className="hidden md:block relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
                                 <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <img
                                     src="/logo.png"
@@ -177,7 +177,7 @@ const Navbar1 = ({
                                 />
                             </div>
                             {/* Text hidden on mobile, or white */}
-                            <span className="hidden md:block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900">{logo.title}</span>
+                            <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 uppercase">{logo.title}</span>
                         </a>
                     </div>
 
