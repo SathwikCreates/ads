@@ -287,7 +287,7 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.1)] overflow-hidden flex font-sans border border-white/5">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] flex font-sans">
 
                         {/* Column 1: Join the Team */}
                         <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">

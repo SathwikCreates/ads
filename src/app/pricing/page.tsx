@@ -141,7 +141,7 @@ export default function PricingPage() {
                         className="inline-block mb-6 relative"
                     >
                         <span className="absolute -top-6 -right-4 md:-right-8 bg-lime-400 text-black text-[10px] md:text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest rotate-12 shadow-md border-2 border-black">
-                            V2.0 Ready
+                            Enterprise Ready
                         </span>
                         <h1 className="text-5xl md:text-[9rem] font-serif font-medium text-slate-900 leading-[0.9] md:leading-[0.8] tracking-tighter mix-blend-darken">
                             Choose Your <br />

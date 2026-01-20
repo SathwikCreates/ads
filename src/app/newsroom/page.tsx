@@ -41,7 +41,7 @@ const newsItems = [
         date: "OCT 14, 2025",
         category: "CULTURE",
         title: "Why we banned meetings on Tuesdays.",
-        excerpt: "Deep work is the only currency that matters. How our engineering team shipped V2.0 in record time by eliminating context switching.",
+        excerpt: "Deep work is the only currency that matters. How our engineering team shipped in record time by eliminating context switching.",
         image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3", // Office
         color: "text-purple-400"
     },
@@ -56,7 +56,7 @@ const newsItems = [
     },
 ];
 
-const tickerItems = ["BREAKING: SERIES B SECURED", "•", "NEW FEATURE: KINETIC VIDEO", "•", "HIRING: HEAD OF AI", "•", "GLOBAL EXPANSION", "•", "AdCoach V2.0 LIVE", "•"];
+const tickerItems = ["BREAKING: SERIES B SECURED", "•", "NEW FEATURE: KINETIC VIDEO", "•", "HIRING: HEAD OF AI", "•", "GLOBAL EXPANSION", "•", "AdCoach LIVE", "•"];
 
 export default function NewsroomPage() {
     const [hoveredItem, setHoveredItem] = useState<number | null>(null);

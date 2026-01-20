@@ -47,7 +47,7 @@ const DataViz = () => {
     const [line1, setLine1] = useState("");
     const [line2, setLine2] = useState("");
     const cmd1 = "> pip install adcoach-sdk";
-    const cmd2 = "[SUCCESS] Installed v2.0.4 (1.2s)";
+    const cmd2 = "[SUCCESS] Installed v1.4.2 (1.2s)";
 
     useEffect(() => {
         let t1: NodeJS.Timeout;
