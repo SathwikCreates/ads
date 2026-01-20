@@ -167,11 +167,13 @@ const Navbar1 = ({
                     {/* Left: Logo */}
                     <div className="flex items-center gap-2">
                         <a href={logo.url} className="flex items-center gap-2 group">
-                            <img
-                                src="/logo.png"
-                                alt={logo.alt}
-                                className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform duration-300 group-hover:scale-110"
-                            />
+                            <div className="bg-slate-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-purple-900/20">
+                                <img
+                                    src="/logo.png"
+                                    alt={logo.alt}
+                                    className="w-4 h-4 md:w-5 md:h-5 object-contain"
+                                />
+                            </div>
                             <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 group-hover:text-purple-600 transition-colors uppercase">{logo.title}</span>
                         </a>
                     </div>
