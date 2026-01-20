@@ -79,6 +79,13 @@ export function Hero() {
                             </span>
                         </Link>
 
+                        <Link
+                            href="/platform"
+                            className="w-full sm:w-auto px-8 py-4 bg-white text-purple-600 border border-purple-100 rounded-full text-lg font-medium hover:bg-purple-50 hover:border-purple-200 transition-all shadow-sm flex items-center justify-center gap-2"
+                        >
+                            View Live Demo
+                        </Link>
+
 
                     </motion.div>
                 </div>

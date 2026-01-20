@@ -21,37 +21,37 @@ const Logos3 = ({
         {
             id: "meta",
             description: "Meta",
-            image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+            image: "https://logo.clearbit.com/meta.com",
             className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "tiktok",
             description: "TikTok",
-            image: "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
+            image: "https://logo.clearbit.com/tiktok.com",
             className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "google",
             description: "Google Ads",
-            image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+            image: "https://logo.clearbit.com/ads.google.com",
             className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "stripe",
             description: "Stripe",
-            image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+            image: "https://logo.clearbit.com/stripe.com",
             className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "shopify",
             description: "Shopify",
-            image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
+            image: "https://logo.clearbit.com/shopify.com",
             className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "hubspot",
             description: "HubSpot",
-            image: "https://cdn.worldvectorlogo.com/logos/hubspot.svg",
+            image: "https://logo.clearbit.com/hubspot.com",
             className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         }
     ],

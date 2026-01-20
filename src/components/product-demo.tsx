@@ -30,9 +30,9 @@ export function ProductDemo() {
                             <div className="w-3 h-3 rounded-full bg-red-500/80" />
                             <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                             <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                            <div className="ml-4 flex-1 h-6 bg-slate-900/50 rounded-md text-[10px] text-slate-500 flex items-center px-3 font-mono">
-                                app.ads-platform.com/dashboard/overview
-                            </div>
+                            <a href="/platform" className="ml-4 flex-1 h-6 bg-slate-900/50 rounded-md text-[10px] text-slate-500 flex items-center px-3 font-mono hover:text-purple-400 hover:bg-slate-900 transition-colors cursor-pointer group">
+                                <span className="text-slate-600 group-hover:text-purple-500 mr-1">https://</span>app.ads-platform.com/dashboard/overview
+                            </a>
                         </div>
 
                         {/* Dashboard Mock Content */}

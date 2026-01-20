@@ -10,10 +10,10 @@ const features = [
     {
         id: "brain",
         label: "Unified Intelligence",
-        title: "The Brain",
+        title: "Predictive Core",
         stat: "+400% ROAS",
         desc: "Ingests data from Meta, TikTok, and Google. Our models identify the winning signal in the noise.",
-        detailedDesc: "The Brain serves as the central nervous system of your ad stack. By aggregating cross-channel performance data into a single verified stream, it eliminates attribution conflicts and identifies the true drivers of conversion.",
+        detailedDesc: "The Predictive Core serves as the central nervous system of your ad stack. By aggregating cross-channel performance data into a single verified stream, it eliminates attribution conflicts and identifies the true drivers of conversion.",
         specs: ["Cross-Channel Attribution", "Real-Time Signal Processing", "Competitor Intelligence", "Custom Attribution Models"],
         icon: Brain,
         colSpan: "md:col-span-2",
@@ -23,10 +23,10 @@ const features = [
     {
         id: "creator",
         label: "Generative Studio",
-        title: "The Creator",
+        title: "Creative Studio",
         stat: "0.2s Latency",
         desc: "Text-to-Video that feels human. Auto-adjusts formatting for Reels, Stories, and Shorts.",
-        detailedDesc: "Generative Studio allows you to produce high-fidelity creative assets at scale. From script generation to video rendering, our AI agents handle the heavy lifting, ensuring your brand never experiences ad fatigue.",
+        detailedDesc: "Creative Studio allows you to produce high-fidelity creative assets at scale. From script generation to video rendering, our AI agents handle the heavy lifting, ensuring your brand never experiences ad fatigue.",
         specs: ["Text-to-Video Generation", "Auto-Resizing (9:16, 1:1, 16:9)", "Multilingual Dubbing", "Brand Voice Calibration"],
         icon: Sparkles,
         colSpan: "md:col-span-1",
@@ -36,10 +36,10 @@ const features = [
     {
         id: "oracle",
         label: "Predictive Bidding",
-        title: "The Oracle",
+        title: "Bid Optimizer",
         stat: "98% Accuracy",
         desc: "Knows the clearing price before the auction starts. Never overpay for an impression again.",
-        detailedDesc: "The Oracle predicts auction dynamics milliseconds before you bid. It analyzes historical clearing prices and current market density to ensure you win premium inventory at the lowest possible floor price.",
+        detailedDesc: "The Bid Optimizer predicts auction dynamics milliseconds before you bid. It analyzes historical clearing prices and current market density to ensure you win premium inventory at the lowest possible floor price.",
         specs: ["Bid Shading Algorithms", "Auction Pressure Analysis", "Win-Rate Prediction", "Budget Pacing Control"],
         icon: Zap,
         colSpan: "md:col-span-1",
@@ -49,10 +49,10 @@ const features = [
     {
         id: "identity",
         label: "Identity Resolution",
-        title: "The Key",
+        title: "Identity Graph",
         stat: "1:1 Match",
         desc: "Cookie-less tracking that survives the privacy apocalypse.",
-        detailedDesc: "The Key reconstructs user journeys in a post-cookie world. Using first-party server-side tagging and probabilistic matching, we resolve anonymous traffic into actionable user profiles without violating privacy compliance.",
+        detailedDesc: "The Identity Graph reconstructs user journeys in a post-cookie world. Using first-party server-side tagging and probabilistic matching, we resolve anonymous traffic into actionable user profiles without violating privacy compliance.",
         specs: ["Server-Side Tagging (CAPI)", "Probabilistic Matching", "GDPR/CCPA Compliant", "Device Graph Resolution"],
         icon: Fingerprint,
         colSpan: "md:col-span-2",
@@ -128,7 +128,7 @@ export function ValueProposition() {
                             onClick={() => setSelectedFeature(item)}
                             className={cn(
                                 item.colSpan,
-                                "group relative bg-white/90 backdrop-blur-xl border border-white/60 rounded-[2rem] p-10 overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-purple-900/10 transition-all duration-500"
+                                "group relative bg-white border border-slate-200 rounded-[2rem] p-10 overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl hover:border-purple-300 transition-all duration-500"
                             )}
                         >
                             {/* Abstract Gradient Hover */}
@@ -153,7 +153,7 @@ export function ValueProposition() {
                                 </div>
 
                                 <div className="mt-8 pt-8 border-t border-slate-900/5 flex items-center justify-between opacity-80 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-purple-600">
-                                    <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest bg-purple-100 px-4 py-3 rounded-full hover:bg-purple-200 transition-colors cursor-pointer">
+                                    <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest bg-purple-50 border border-purple-200 px-4 py-3 rounded-full hover:bg-purple-100 transition-colors cursor-pointer shadow-sm">
                                         <Sparkles className="w-4 h-4" /> Learn More
                                     </span>
                                     <div className="p-2 rounded-full bg-slate-100 group-hover:bg-purple-100 transition-colors">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
     {
@@ -41,7 +41,7 @@ export function Testimonials() {
                     <p className="text-slate-500 text-lg">Trusted by over 500+ companies to scale their revenue.</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, idx) => (
                         <motion.div
                             key={idx}
@@ -49,9 +49,10 @@ export function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-purple-100 transition-all duration-300"
+                            className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-purple-100 transition-all duration-300 relative group"
                         >
-                            <p className="text-slate-700 leading-relaxed mb-6 italic">"{testimonial.content}"</p>
+                            <Quote className="absolute top-6 right-6 w-8 h-8 text-purple-100 group-hover:text-purple-200 transition-colors" />
+                            <p className="text-slate-700 leading-relaxed mb-6 italic relative z-10">"{testimonial.content}"</p>
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">
                                     {testimonial.avatar}
