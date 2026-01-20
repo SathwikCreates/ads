@@ -160,18 +160,18 @@ const Navbar1 = ({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     return (
-        <section className={`py-4 md:py-5 fixed top-0 w-full z-[999] transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none supports-[backdrop-filter]:bg-white/60 md:supports-[backdrop-filter]:bg-transparent"}`}>
+        <section className={`py-4 lg:py-5 fixed top-0 w-full z-[999] transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none supports-[backdrop-filter]:bg-white/60 lg:supports-[backdrop-filter]:bg-transparent"}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 
                     {/* Left: Logo */}
                     <div className="flex items-center gap-2">
                         <a href={logo.url} className="flex items-center gap-2 group">
-                            <div className="bg-slate-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-purple-900/20">
+                            <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                                 <img
                                     src="/logo.png"
                                     alt={logo.alt}
-                                    className="w-4 h-4 md:w-5 md:h-5 object-contain"
+                                    className="w-8 h-8 md:w-10 md:h-10 object-contain brightness-0 filter group-hover:brightness-100 transition-all duration-300"
                                 />
                             </div>
                             <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 group-hover:text-purple-600 transition-colors uppercase">{logo.title}</span>
@@ -283,7 +283,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.title === "Company") {
         return (
             <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:text-slate-900 focus:text-slate-900 h-8 px-3 text-sm font-medium rounded-full">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -369,7 +369,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.title === "Platform") {
         return (
             <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:text-slate-900 focus:text-slate-900 h-8 px-3 text-sm font-medium rounded-full">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -434,7 +434,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.title === "Solutions") {
         return (
             <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:text-slate-900 focus:text-slate-900 h-8 px-3 text-sm font-medium rounded-full">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -486,7 +486,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.title === "Resources") {
         return (
             <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:text-slate-900 focus:text-slate-900 h-8 px-3 text-sm font-medium rounded-full">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -538,7 +538,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.items) {
         return (
             <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:bg-black/5 hover:text-slate-900 focus:bg-black/5 focus:text-slate-900 data-[active]:bg-black/5 data-[state=open]:bg-black/5 h-8 px-3 text-sm font-medium rounded-full">
+                <NavigationMenuTrigger className="bg-transparent text-slate-700 hover:text-slate-900 focus:text-slate-900 h-8 px-3 text-sm font-medium rounded-full">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -563,7 +563,7 @@ const renderMenuItem = (item: MenuItem) => {
     return (
         <a
             key={item.title}
-            className="group inline-flex h-8 items-center justify-center rounded-full bg-transparent px-3 text-sm font-medium text-slate-700 transition-colors hover:bg-black/5 hover:text-slate-900"
+            className="group inline-flex h-8 items-center justify-center rounded-full bg-transparent px-3 text-sm font-medium text-slate-700 transition-colors hover:text-slate-900"
             href={item.url}
         >
             {item.title}
