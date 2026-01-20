@@ -43,10 +43,10 @@ export function ProductDemo() {
                         </div>
 
                         {/* Dashboard Mock Content */}
-                        <div className="bg-[#0B0F19] p-0 aspect-[16/9] relative flex">
+                        <div className="bg-[#0B0F19] p-0 min-h-[500px] md:min-h-0 md:aspect-[16/9] relative flex flex-col md:flex-row">
 
-                            {/* Sidebar */}
-                            <div className="w-16 md:w-20 border-r border-slate-800/50 flex flex-col items-center py-6 gap-6 z-10 bg-[#0B0F19]">
+                            {/* Sidebar - Horizontal on mobile? No, let's hide on mobile or keep narrow */}
+                            <div className="w-16 md:w-20 border-r border-slate-800/50 flex flex-col items-center py-6 gap-6 z-10 bg-[#0B0F19] hidden md:flex">
                                 <div className="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-xs">A</div>
                                 <div className="flex flex-col gap-4 mt-4 w-full px-2">
                                     {[1, 2, 3, 4].map((i) => (
@@ -65,42 +65,42 @@ export function ProductDemo() {
                             </div>
 
                             {/* Main Content Area */}
-                            <div className="flex-1 overflow-hidden flex flex-col relative">
+                            <div className="flex-1 overflow-y-auto md:overflow-hidden flex flex-col relative">
 
                                 {/* Top Bar */}
-                                <div className="h-16 border-b border-slate-800/50 flex items-center justify-between px-8 bg-[#0B0F19]/95 backdrop-blur z-10">
+                                <div className="h-16 border-b border-slate-800/50 flex items-center justify-between px-4 md:px-8 bg-[#0B0F19]/95 backdrop-blur z-10 sticky top-0">
                                     <div className="flex items-center gap-2">
-                                        <h3 className="text-white font-medium">Campaign Performance</h3>
+                                        <h3 className="text-white font-medium text-sm md:text-base">Campaign Performance</h3>
                                         <span className="flex h-2 w-2 relative ml-2">
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                                         </span>
-                                        <span className="text-xs text-green-500 font-mono uppercase tracking-wider ml-1">Live</span>
+                                        <span className="text-xs text-green-500 font-mono uppercase tracking-wider ml-1 hidden sm:block">Live</span>
                                     </div>
-                                    <div className="flex gap-3">
-                                        <div className="h-8 px-3 rounded-md bg-[#131825] border border-slate-800 text-xs text-slate-400 flex items-center">Last 30 Days</div>
-                                        <div className="h-8 px-3 rounded-md bg-purple-600 text-white text-xs font-medium flex items-center">Export Report</div>
+                                    <div className="flex gap-2 md:gap-3">
+                                        <div className="h-8 px-3 rounded-md bg-[#131825] border border-slate-800 text-xs text-slate-400 flex items-center whitespace-nowrap">Last 30 Days</div>
+                                        <div className="h-8 px-3 rounded-md bg-purple-600 text-white text-xs font-medium flex items-center whitespace-nowrap">Export</div>
                                     </div>
                                 </div>
 
                                 {/* Dashboard Grid */}
-                                <div className="p-8 grid grid-cols-12 gap-6 flex-1 overflow-hidden">
+                                <div className="p-4 md:p-8 grid grid-cols-12 gap-4 md:gap-6 flex-1 overflow-y-auto">
 
                                     {/* Stats Cards */}
-                                    <div className="col-span-12 grid grid-cols-3 gap-6 h-32">
+                                    <div className="col-span-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 h-auto">
                                         {[
                                             { label: "Total Spend", val: "$124,592", trend: "+12.5%", good: true },
                                             { label: "ROAS", val: "4.8x", trend: "+0.4x", good: true },
                                             { label: "Conversions", val: "8,942", trend: "-2.1%", good: false },
                                         ].map((stat, i) => (
-                                            <div key={i} className="bg-[#131825] rounded-xl border border-slate-800 p-5 flex flex-col justify-between group hover:border-slate-700 transition-colors">
+                                            <div key={i} className="bg-[#131825] rounded-xl border border-slate-800 p-4 md:p-5 flex flex-col justify-between group hover:border-slate-700 transition-colors gap-4 sm:gap-0">
                                                 <div className="flex justify-between items-start">
                                                     <span className="text-slate-500 text-sm font-medium">{stat.label}</span>
                                                     <span className={`text-xs px-2 py-0.5 rounded-full ${stat.good ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
                                                         {stat.trend}
                                                     </span>
                                                 </div>
-                                                <div className="text-3xl text-white font-semibold tracking-tight">{stat.val}</div>
+                                                <div className="text-2xl md:text-3xl text-white font-semibold tracking-tight">{stat.val}</div>
                                                 <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
                                                     <div className="h-full bg-purple-500 rounded-full" style={{ width: `${Math.random() * 40 + 40}%` }} />
                                                 </div>
@@ -109,11 +109,11 @@ export function ProductDemo() {
                                     </div>
 
                                     {/* Main Chart */}
-                                    <div className="col-span-8 bg-[#131825] rounded-xl border border-slate-800 p-6 relative overflow-hidden group">
+                                    <div className="col-span-12 md:col-span-8 bg-[#131825] rounded-xl border border-slate-800 p-4 md:p-6 relative overflow-hidden group min-h-[250px] md:min-h-0">
                                         <div className="flex justify-between items-center mb-6">
                                             <h4 className="text-slate-300 text-sm font-medium">Revenue vs Spend</h4>
                                         </div>
-                                        <div className="absolute inset-x-0 bottom-0 h-48 flex items-end px-6 gap-1">
+                                        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1">
                                             {[...Array(24)].map((_, i) => {
                                                 const h = 20 + Math.random() * 60;
                                                 return (
@@ -127,7 +127,7 @@ export function ProductDemo() {
                                     </div>
 
                                     {/* Side List */}
-                                    <div className="col-span-4 bg-[#131825] rounded-xl border border-slate-800 p-6 flex flex-col gap-4">
+                                    <div className="col-span-12 md:col-span-4 bg-[#131825] rounded-xl border border-slate-800 p-4 md:p-6 flex flex-col gap-4">
                                         <h4 className="text-slate-300 text-sm font-medium mb-2">Active Channels</h4>
                                         {[
                                             { n: "Meta / Instagram", v: "$45k", c: "bg-blue-500" },
@@ -138,7 +138,7 @@ export function ProductDemo() {
                                             <div key={i} className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-800/50 transition-colors cursor-pointer">
                                                 <div className="flex items-center gap-3">
                                                     <div className={`w-2 h-2 rounded-full ${ch.c}`} />
-                                                    <span className="text-slate-400 text-sm">{ch.n}</span>
+                                                    <span className="text-slate-400 text-sm truncate max-w-[120px]">{ch.n}</span>
                                                 </div>
                                                 <span className="text-white text-sm font-mono">{ch.v}</span>
                                             </div>
