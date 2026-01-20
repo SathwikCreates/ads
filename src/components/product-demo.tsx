@@ -110,15 +110,45 @@ export function ProductDemo() {
 
                                     {/* Main Chart */}
                                     <div className="col-span-12 md:col-span-8 bg-[#131825] rounded-xl border border-slate-800 p-4 md:p-6 relative overflow-hidden group min-h-[250px] md:min-h-0">
-                                        <div className="flex justify-between items-center mb-6">
-                                            <h4 className="text-slate-300 text-sm font-medium">Revenue vs Spend</h4>
+                                        <div className="flex justify-between items-center mb-6 relative z-10">
+                                            <div>
+                                                <h4 className="text-slate-100 text-sm font-medium mb-1">Revenue vs Spend</h4>
+                                                <p className="text-xs text-slate-500">Real-time attribution data</p>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                                                    <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.5)]" /> Revenue
+                                                </div>
+                                                <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                                                    <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.5)]" /> Spend
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1">
+
+                                        {/* Grid Lines */}
+                                        <div className="absolute inset-x-6 top-20 bottom-0 flex flex-col justify-between pointer-events-none opacity-20">
+                                            <div className="w-full h-px border-t border-dashed border-slate-500" />
+                                            <div className="w-full h-px border-t border-dashed border-slate-500" />
+                                            <div className="w-full h-px border-t border-dashed border-slate-500" />
+                                        </div>
+
+                                        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1.5 md:gap-2">
                                             {[...Array(24)].map((_, i) => {
+                                                const height1 = 20 + ((i * 13) % 60); // Deterministic
+                                                const height2 = 30 + ((i * 7) % 50);  // Deterministic
+
                                                 return (
-                                                    <div key={i} className="flex-1 flex flex-col justify-end gap-1 group/bar">
-                                                        <div className="w-full bg-purple-500/20 group-hover/bar:bg-purple-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${20 + ((i * 13) % 60)}%` }} />
-                                                        <div className="w-full bg-blue-500/20 group-hover/bar:bg-blue-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${30 + ((i * 7) % 50)}%` }} />
+                                                    <div key={i} className="flex-1 flex flex-col justify-end gap-1 group/bar relative">
+                                                        {/* Bar 1: Cyan/Revenue */}
+                                                        <div
+                                                            className="w-full bg-gradient-to-t from-cyan-600 to-cyan-300 rounded-sm opacity-80 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+                                                            style={{ height: `${height1}%` }}
+                                                        />
+                                                        {/* Bar 2: Purple/Spend */}
+                                                        <div
+                                                            className="w-full bg-gradient-to-t from-purple-700 to-purple-500 rounded-sm opacity-80 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+                                                            style={{ height: `${height2}%` }}
+                                                        />
                                                     </div>
                                                 )
                                             })}

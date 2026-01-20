@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Book, Menu, Sunset, Trees, Zap, ArrowUpRight, Mail, Newspaper, Target, Layers, Shield, Users, BarChart, Globe, LifeBuoy, X, Building2, Share2, Circle, ChevronRight } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, ArrowUpRight, Mail, Newspaper, Target, Layers, Shield, Users, BarChart, Globe, LifeBuoy, X, Building2, Share2, Circle, ChevronRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {
@@ -160,31 +160,24 @@ const Navbar1 = ({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     return (
-        <section className={`py-4 fixed top-0 w-full z-50 transition-all ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/80 backdrop-blur-md border-b border-gray-200/50"}`}>
+        <section className={`py-4 md:py-5 fixed top-0 w-full z-50 transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm supports-[backdrop-filter]:bg-white/60"}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 
-                    {/* Left: Logo (Implicitly on left, though cropped in screenshot) */}
+                    {/* Left: Logo */}
                     <div className="flex items-center gap-2">
-                        {/* Keep existing logo logic but maybe make it white to match Hero */}
                         <a href={logo.url} className="flex items-center gap-2 group">
-                            <div className="hidden md:block relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
-                                <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <img
-                                    src="/logo.png"
-                                    alt={logo.alt}
-                                    className="w-full h-full object-contain brightness-0"
-                                />
+                            <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-purple-600 to-blue-600 rounded-xl text-white shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform duration-300">
+                                <Sparkles className="w-5 h-5 fill-white" />
                             </div>
-                            {/* Text hidden on mobile, or white */}
-                            <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 uppercase">{logo.title}</span>
+                            <span className="block text-xl md:text-2xl font-black tracking-tighter font-sans text-slate-900 group-hover:text-purple-600 transition-colors uppercase">{logo.title}</span>
                         </a>
                     </div>
 
                     {/* Center: Capsule Navigation */}
-                    <div className="hidden lg:flex items-center bg-white/40 backdrop-blur-xl border border-white/30 rounded-full py-1.5 px-6 shadow-sm">
+                    <div className="hidden lg:flex items-center bg-slate-100/50 backdrop-blur-md border border-slate-200/50 rounded-full py-1.5 px-1 shadow-inner">
                         <NavigationMenu>
-                            <NavigationMenuList className="gap-6">
+                            <NavigationMenuList className="gap-2">
                                 {menu.map((item) => renderMenuItem(item))}
                             </NavigationMenuList>
                         </NavigationMenu>
@@ -192,9 +185,9 @@ const Navbar1 = ({
 
                     {/* Right: Auth & CTA */}
                     <div className="hidden lg:flex items-center gap-6">
-                        <a href={auth.login.url} className="text-slate-700 hover:text-slate-900 font-medium text-sm transition-colors">{auth.login.text}</a>
+                        <a href={auth.login.url} className="text-slate-600 hover:text-purple-600 font-medium text-sm transition-colors">{auth.login.text}</a>
 
-                        <Button asChild size="sm" className="bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-md px-5 h-9 shadow-md">
+                        <Button asChild size="sm" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-full px-6 h-10 shadow-lg shadow-purple-500/25 transition-all hover:shadow-purple-500/40 hover:-translate-y-0.5">
                             <a href={auth.signup.url}>{auth.signup.text}</a>
                         </Button>
                     </div>
@@ -205,12 +198,12 @@ const Navbar1 = ({
                             variant="ghost"
                             size="icon"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="relative z-50"
+                            className="relative z-50 hover:bg-slate-100/50"
                         >
                             {isMobileMenuOpen ? (
-                                <X className="w-6 h-6" />
+                                <X className="w-6 h-6 text-slate-900" />
                             ) : (
-                                <Menu className="w-6 h-6" />
+                                <Menu className="w-6 h-6 text-slate-900" />
                             )}
                         </Button>
                     </div>
