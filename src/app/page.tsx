@@ -1,6 +1,5 @@
 import { Hero } from "@/components/hero";
 import { ValueProposition } from "@/components/value-proposition";
-import { Footer } from "@/components/footer";
 import { Logos3 } from "@/components/blocks/logos3";
 import { Testimonials } from "@/components/ui/testimonials";
 import { ProductDemo } from "@/components/product-demo";
@@ -41,7 +40,6 @@ export default function Home() {
         </section>
 
       </main>
-      <Footer />
     </div>
   );
 }

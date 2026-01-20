@@ -5,7 +5,30 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export function ProductDemo() {
+
     const [activeTab, setActiveTab] = React.useState(0);
+    const [settings, setSettings] = React.useState({ email: true, twoFa: false, pub: false });
+    const [members, setMembers] = React.useState([
+        { name: "Alex Chen", role: "Admin", status: "Online" },
+        { name: "Sarah Jones", role: "Editor", status: "Offline" },
+        { name: "Mike Ross", role: "Viewer", status: "Online" },
+    ]);
+    const [exportStatus, setExportStatus] = React.useState<'idle' | 'loading' | 'success'>('idle');
+
+    const handleExport = () => {
+        if (exportStatus !== 'idle') return;
+        setExportStatus('loading');
+        setTimeout(() => {
+            setExportStatus('success');
+            setTimeout(() => setExportStatus('idle'), 2000);
+        }, 1500);
+    };
+
+    const handleInvite = () => {
+        const names = ["Emma Wilson", "James Liu", "Sofia Rodriguez", "David Kim"];
+        const randomName = names[members.length % names.length]; // Deterministic rotation
+        setMembers([...members, { name: randomName, role: "Viewer", status: "Pending" }]);
+    };
 
     const tabs = [
         { icon: "layout-dashboard", label: "Overview" },
@@ -93,7 +116,13 @@ export function ProductDemo() {
                                     </div>
                                     <div className="flex gap-2 md:gap-3">
                                         <div className="h-8 px-3 rounded-md bg-[#131825] border border-slate-800 text-xs text-slate-400 flex items-center whitespace-nowrap">Last 30 Days</div>
-                                        <div className="h-8 px-3 rounded-md bg-purple-600 text-white text-xs font-medium flex items-center whitespace-nowrap shadow-lg shadow-purple-900/20">Export</div>
+                                        <button
+                                            onClick={handleExport}
+                                            disabled={exportStatus !== 'idle'}
+                                            className={`h-8 px-3 rounded-md text-white text-xs font-medium flex items-center whitespace-nowrap shadow-lg transition-all ${exportStatus === 'success' ? 'bg-green-500 shadow-green-900/20' : 'bg-purple-600 shadow-purple-900/20 hover:bg-purple-500'}`}
+                                        >
+                                            {exportStatus === 'idle' ? 'Export' : exportStatus === 'loading' ? 'Generating...' : 'Report Ready!'}
+                                        </button>
                                     </div>
                                 </div>
 
@@ -218,14 +247,10 @@ export function ProductDemo() {
                                             <div className="bg-[#131825] rounded-xl border border-slate-800 overflow-hidden">
                                                 <div className="p-4 border-b border-slate-800 flex justify-between items-center">
                                                     <h4 className="text-slate-100 font-medium">Team Members</h4>
-                                                    <button className="text-xs bg-purple-600 text-white px-3 py-1.5 rounded hover:bg-purple-500">Invite Member</button>
+                                                    <button onClick={handleInvite} className="text-xs bg-purple-600 text-white px-3 py-1.5 rounded hover:bg-purple-500 transition-colors">invite Member</button>
                                                 </div>
                                                 <div className="divide-y divide-slate-800">
-                                                    {[
-                                                        { name: "Alex Chen", role: "Admin", status: "Online" },
-                                                        { name: "Sarah Jones", role: "Editor", status: "Offline" },
-                                                        { name: "Mike Ross", role: "Viewer", status: "Online" },
-                                                    ].map((user, i) => (
+                                                    {members.map((user, i) => (
                                                         <div key={i} className="p-4 flex items-center justify-between hover:bg-slate-800/20">
                                                             <div className="flex items-center gap-3">
                                                                 <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold text-white">
@@ -237,7 +262,7 @@ export function ProductDemo() {
                                                                 </div>
                                                             </div>
                                                             <div className="flex items-center gap-2">
-                                                                <div className={`w-2 h-2 rounded-full ${user.status === 'Online' ? 'bg-green-500' : 'bg-slate-600'}`} />
+                                                                <div className={`w-2 h-2 rounded-full ${user.status === 'Online' ? 'bg-green-500' : user.status === 'Pending' ? 'bg-yellow-500' : 'bg-slate-600'}`} />
                                                                 <span className="text-xs text-slate-400">{user.status}</span>
                                                             </div>
                                                         </div>
@@ -254,17 +279,17 @@ export function ProductDemo() {
                                                 <h4 className="text-slate-100 font-medium mb-6">General Settings</h4>
                                                 <div className="space-y-6">
                                                     {[
-                                                        { label: "Email Notifications", desc: "Receive daily performance summaries" },
-                                                        { label: "Two-Factor Auth", desc: "Add an extra layer of security" },
-                                                        { label: "Public Profile", desc: "Allow others to see your workspace" },
+                                                        { key: 'email', label: "Email Notifications", desc: "Receive daily performance summaries" },
+                                                        { key: 'twoFa', label: "Two-Factor Auth", desc: "Add an extra layer of security" },
+                                                        { key: 'pub', label: "Public Profile", desc: "Allow others to see your workspace" },
                                                     ].map((setting, i) => (
-                                                        <div key={i} className="flex items-center justify-between">
+                                                        <div key={i} className="flex items-center justify-between group cursor-pointer" onClick={() => setSettings(s => ({ ...s, [setting.key]: !s[setting.key as keyof typeof settings] }))}>
                                                             <div>
-                                                                <div className="text-sm text-white font-medium">{setting.label}</div>
+                                                                <div className="text-sm text-white font-medium group-hover:text-purple-400 transition-colors">{setting.label}</div>
                                                                 <div className="text-xs text-slate-500">{setting.desc}</div>
                                                             </div>
-                                                            <div className={`w-10 h-6 rounded-full relative cursor-pointer transition-colors ${i === 0 ? 'bg-purple-600' : 'bg-slate-700'}`}>
-                                                                <div className={`w-4 h-4 rounded-full bg-white absolute top-1 transition-all ${i === 0 ? 'left-5' : 'left-1'}`} />
+                                                            <div className={`w-10 h-6 rounded-full relative transition-colors ${settings[setting.key as keyof typeof settings] ? 'bg-purple-600' : 'bg-slate-700'}`}>
+                                                                <div className={`w-4 h-4 rounded-full bg-white absolute top-1 transition-all ${settings[setting.key as keyof typeof settings] ? 'left-5' : 'left-1'}`} />
                                                             </div>
                                                         </div>
                                                     ))}
