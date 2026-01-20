@@ -287,10 +287,10 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.1)] overflow-hidden flex font-sans border border-white/5">
 
                         {/* Column 1: Join the Team */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Join the Team</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/careers">Careers</a>
@@ -310,7 +310,7 @@ const renderMenuItem = (item: MenuItem) => {
                         </div>
 
                         {/* Column 2: Company */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Company</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/about">About</a>
@@ -344,15 +344,15 @@ const renderMenuItem = (item: MenuItem) => {
                             </div>
 
                             <div className="space-y-1 mt-auto">
-                                <a href="/contact" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/contact" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Mail className="w-4 h-4" /></div>
                                     Contact
                                 </a>
-                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     Slack Community <span className="text-[10px] opacity-50">↗</span>
                                 </a>
-                                <a href="/newsroom" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/newsroom" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Newspaper className="w-4 h-4" /></div>
                                     Newsroom
                                 </a>
@@ -373,9 +373,9 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.1)] overflow-hidden flex font-sans border border-white/5">
                         {/* Col 1: The Core */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">The Core</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/platform">Engine</a>
@@ -393,7 +393,7 @@ const renderMenuItem = (item: MenuItem) => {
                             </div>
                         </div>
                         {/* Col 2: Integrations */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Connect</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/integrations">Integrate</a>
@@ -414,11 +414,11 @@ const renderMenuItem = (item: MenuItem) => {
                                 <p className="text-slate-300 text-sm">Security, SSO, and dedicated support.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/security" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/security" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Shield className="w-4 h-4" /></div>
                                     Security Portal
                                 </a>
-                                <a href="/pricing" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/pricing" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     View Pricing
                                 </a>
@@ -438,9 +438,9 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.1)] overflow-hidden flex font-sans border border-white/5">
                         {/* Col 1: Industries */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">By Industry</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/solutions">Verticals</a>
@@ -451,7 +451,7 @@ const renderMenuItem = (item: MenuItem) => {
                             </div>
                         </div>
                         {/* Col 2: Teams */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">By Team</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/roles">Roles</a>
@@ -470,7 +470,7 @@ const renderMenuItem = (item: MenuItem) => {
                                 <p className="text-slate-300 text-sm">See how others grow 3x faster.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/solutions" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/solutions" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Trees className="w-4 h-4" /></div>
                                     All Industries
                                 </a>
@@ -490,9 +490,9 @@ const renderMenuItem = (item: MenuItem) => {
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-2xl shadow-2xl overflow-hidden flex font-sans border border-white/10">
+                    <div className="w-[800px] p-0 bg-gradient-to-br from-[#10002b] to-[#1a0035] rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.1)] overflow-hidden flex font-sans border border-white/5">
                         {/* Col 1: Learn */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Learn</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/blog">Blog</a>
@@ -503,7 +503,7 @@ const renderMenuItem = (item: MenuItem) => {
                             </div>
                         </div>
                         {/* Col 2: Support */}
-                        <div className="w-1/3 p-8 border-r border-white/10 flex flex-col relative group">
+                        <div className="w-1/3 p-8 border-r border-white/5 flex flex-col relative group">
                             <div className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4">Support</div>
                             <h3 className="text-3xl font-serif text-white mb-2 group-hover:text-purple-400 transition-colors cursor-pointer">
                                 <a href="/help">Help</a>
@@ -522,7 +522,7 @@ const renderMenuItem = (item: MenuItem) => {
                                 <p className="text-slate-300 text-sm">Join thousands of ad experts.</p>
                             </div>
                             <div className="space-y-1 mt-auto">
-                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/10 transition-colors">
+                                <a href="/community" className="flex items-center gap-3 text-sm font-medium text-slate-200 hover:text-purple-400 py-3 border-t border-white/5 transition-colors">
                                     <div className="w-4 h-4"><Zap className="w-4 h-4" /></div>
                                     Join Slack
                                 </a>
