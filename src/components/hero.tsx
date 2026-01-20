@@ -79,9 +79,7 @@ export function Hero() {
                             </span>
                         </Link>
 
-                        <div className="w-12 h-12 rounded-full border border-purple-200 bg-white/50 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white hover:scale-110 transition-all shadow-sm">
-                            <Play className="w-4 h-4 text-purple-600 ml-1" />
-                        </div>
+
                     </motion.div>
                 </div>
 
