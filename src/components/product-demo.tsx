@@ -132,21 +132,21 @@ export function ProductDemo() {
                                             <div className="w-full h-px border-t border-dashed border-slate-500" />
                                         </div>
 
-                                        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1.5 md:gap-2">
+                                        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1.5 md:gap-2 z-20">
                                             {[...Array(24)].map((_, i) => {
                                                 const height1 = 20 + ((i * 13) % 60); // Deterministic
                                                 const height2 = 30 + ((i * 7) % 50);  // Deterministic
 
                                                 return (
-                                                    <div key={i} className="flex-1 flex flex-col justify-end gap-1 group/bar relative">
+                                                    <div key={i} className="flex-1 flex flex-col justify-end gap-1 group/bar relative h-full">
                                                         {/* Bar 1: Cyan/Revenue */}
                                                         <div
-                                                            className="w-full bg-gradient-to-t from-cyan-600 to-cyan-300 rounded-sm opacity-80 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+                                                            className="w-full bg-gradient-to-t from-[#0891b2] to-[#67e8f9] rounded-sm opacity-90 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
                                                             style={{ height: `${height1}%` }}
                                                         />
                                                         {/* Bar 2: Purple/Spend */}
                                                         <div
-                                                            className="w-full bg-gradient-to-t from-purple-700 to-purple-500 rounded-sm opacity-80 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+                                                            className="w-full bg-gradient-to-t from-[#7e22ce] to-[#a855f7] rounded-sm opacity-90 group-hover/bar:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] group-hover/bar:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
                                                             style={{ height: `${height2}%` }}
                                                         />
                                                     </div>
