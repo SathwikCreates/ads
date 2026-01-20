@@ -128,7 +128,7 @@ const Navbar1 = ({
         },
         {
             title: "Resources",
-            url: "#",
+            url: "/blog",
             items: [
                 { title: "Blog", url: "/blog", icon: <Book className="size-4" /> },
                 { title: "Docs", url: "/help", icon: <Zap className="size-4" /> },
@@ -136,7 +136,7 @@ const Navbar1 = ({
         },
         {
             title: "Company",
-            url: "#",
+            url: "/about",
             items: [
                 { title: "About", url: "/about", icon: <Trees className="size-4" /> },
                 { title: "Careers", url: "/careers", icon: <Sunset className="size-4" /> },
@@ -160,7 +160,7 @@ const Navbar1 = ({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     return (
-        <section className={`py-6 fixed top-0 w-full z-50 transition-all pointer-events-none ${isMobileMenuOpen ? "bg-white/95 backdrop-blur-md h-screen" : ""}`}>
+        <section className={`py-4 fixed top-0 w-full z-50 transition-all ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/80 backdrop-blur-md border-b border-gray-200/50"}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 
@@ -184,7 +184,7 @@ const Navbar1 = ({
                     {/* Center: Capsule Navigation */}
                     <div className="hidden lg:flex items-center bg-white/40 backdrop-blur-xl border border-white/30 rounded-full py-1.5 px-6 shadow-sm">
                         <NavigationMenu>
-                            <NavigationMenuList className="gap-1">
+                            <NavigationMenuList className="gap-6">
                                 {menu.map((item) => renderMenuItem(item))}
                             </NavigationMenuList>
                         </NavigationMenu>
@@ -257,17 +257,17 @@ const Navbar1 = ({
                                 ))}
                             </Accordion>
 
-                            <div className="flex flex-col gap-3 mt-4">
+                            <div className="grid grid-cols-2 gap-4 mt-6">
                                 <a
                                     href={auth.login.url}
-                                    className="w-full inline-flex h-12 items-center justify-center rounded-lg border border-transparent bg-transparent px-4 text-base font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                                    className="flex items-center justify-center h-12 rounded-xl bg-slate-100 text-slate-700 font-bold active:scale-95 transition-transform"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {auth.login.text}
                                 </a>
                                 <a
                                     href={auth.signup.url}
-                                    className="w-full inline-flex h-12 items-center justify-center rounded-lg bg-slate-900 px-4 text-base font-medium text-white shadow-lg shadow-purple-500/20 transition-colors hover:bg-slate-800"
+                                    className="flex items-center justify-center h-12 rounded-xl bg-purple-600 text-white font-bold shadow-lg shadow-purple-500/30 active:scale-95 transition-transform"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {auth.signup.text}

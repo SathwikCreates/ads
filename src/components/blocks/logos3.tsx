@@ -1,28 +1,18 @@
-// This template requires the Embla Auto Scroll plugin to be installed:
-//
-// npm install embla-carousel-auto-scroll
-
 "use client";
 
-import AutoScroll from "embla-carousel-auto-scroll";
-
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-} from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface Logo {
     id: string;
     description: string;
     image: string;
-    className?: string; // Allow custom sizing
+    className?: string;
 }
 
 interface Logos3Props {
     heading?: string;
-    logos?: Logo[]; // Made logos optional locally, but will provide default
-    className?: string;
+    logos?: Logo[];
+    className?: string; // Preserve className prop
 }
 
 const Logos3 = ({
@@ -32,77 +22,61 @@ const Logos3 = ({
             id: "meta",
             description: "Meta",
             image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-            className: "h-8 w-auto",
+            className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "tiktok",
             description: "TikTok",
             image: "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
-            className: "h-9 w-auto",
+            className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "google",
             description: "Google Ads",
             image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-            className: "h-8 w-auto",
+            className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "stripe",
             description: "Stripe",
             image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
-            className: "h-9 w-auto",
+            className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "shopify",
             description: "Shopify",
             image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
-            className: "h-9 w-auto",
+            className: "h-7 md:h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         },
         {
             id: "hubspot",
             description: "HubSpot",
             image: "https://cdn.worldvectorlogo.com/logos/hubspot.svg",
-            className: "h-8 w-auto"
+            className: "h-6 md:h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0",
         }
     ],
+    className = "", // Default to empty string
 }: Logos3Props) => {
-    // Duplicate logos to ensure seamless loop if array is small
-    const displayLogos = [...logos, ...logos, ...logos];
-
     return (
-        <section className="py-12 md:py-20 bg-tines-violet/5 rounded-[2rem] md:rounded-3xl mx-4 md:mx-6 my-6 md:my-12 border border-tines-violet/10 inset-shadow-sm overflow-hidden">
+        <section className={`py-12 md:py-20 bg-transparent mx-auto ${className}`}>
             <div className="container mx-auto px-6 flex flex-col items-center text-center">
-                <h2 className="mb-12 text-xl font-medium text-tines-forest/70 font-serif">
+                <h2 className="mb-10 md:mb-12 text-sm font-bold tracking-widest text-slate-500 uppercase font-sans">
                     {heading}
                 </h2>
-            </div>
-            <div className="">
-                <div className="relative mx-auto flex items-center justify-center lg:max-w-7xl">
-                    <Carousel
-                        opts={{ loop: true }}
-                        plugins={[AutoScroll({ playOnInit: true, speed: 1.5 })]}
-                    >
-                        <CarouselContent className="items-center">
-                            {displayLogos.map((logo, index) => (
-                                <CarouselItem
-                                    key={`${logo.id}-${index}`}
-                                    className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6"
-                                >
-                                    <div className="mx-6 flex shrink-0 items-center justify-center transform-gpu will-change-transform transition-all duration-300 opacity-100 grayscale-0 md:opacity-60 md:grayscale md:hover:opacity-100 md:hover:grayscale-0">
-                                        <div>
-                                            <img
-                                                src={logo.image}
-                                                alt={logo.description}
-                                                className={logo.className || "h-8 w-auto"}
-                                            />
-                                        </div>
-                                    </div>
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                    </Carousel>
-                    <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white/0 to-transparent pointer-events-none"></div>
-                    <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white/0 to-transparent pointer-events-none"></div>
+
+                <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-16 max-w-5xl mx-auto items-center justify-items-center">
+                    {logos.map((logo) => (
+                        <div
+                            key={logo.id}
+                            className="flex items-center justify-center"
+                        >
+                            <img
+                                src={logo.image}
+                                alt={logo.description}
+                                className={logo.className}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Ads | Intelligent Advertising Optimization",
   description: "Transform your advertising strategy with AI-powered optimization. Unify data, generate content, and drive ROI.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 import { Tiles } from "@/components/ui/tiles";

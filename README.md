@@ -52,7 +52,7 @@
 - `/src/components` - Reusable UI components.
   - `/blocks` - Large distinctive sections (Hero, Navbar, Logos).
   - `/ui` - Atomic shadcn/ui components.
-- `/public` - Static assets (images, loops).
+- `/public` - Static assets (images).
 
 ## 🎨 Theme System
 

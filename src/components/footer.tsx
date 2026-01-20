@@ -51,9 +51,9 @@ export function Footer() {
             title: "CONNECT",
             links: [
                 { name: "Slack Community ↗", href: "/community" },
-                { name: "LinkedIn ↗", href: "#" },
-                { name: "Twitter ↗", href: "#" },
-                { name: "YouTube ↗", href: "#" },
+                { name: "LinkedIn ↗", href: "https://linkedin.com" },
+                { name: "Twitter ↗", href: "https://twitter.com" },
+                { name: "YouTube ↗", href: "https://youtube.com" },
             ],
         },
     ];
@@ -64,18 +64,18 @@ export function Footer() {
             <div className="container mx-auto px-6 font-sans">
 
                 {/* Grid Links */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-32">
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-8 mb-20">
                     {footerSections.map((section) => (
                         <div key={section.title}>
-                            <h4 className="text-xs font-semibold tracking-wider text-white/60 mb-6 uppercase">
+                            <h4 className="text-xs font-bold tracking-widest text-white/50 mb-6 uppercase">
                                 {section.title}
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-4">
                                 {section.links.map((link) => (
                                     <li key={link.name}>
                                         <Link
                                             href={link.href}
-                                            className="text-sm font-medium hover:text-white/80 transition-colors block"
+                                            className="text-sm font-medium hover:text-white transition-colors block py-1"
                                         >
                                             {link.name}
                                         </Link>
