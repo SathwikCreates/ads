@@ -128,7 +128,7 @@ export function ValueProposition() {
                             onClick={() => setSelectedFeature(item)}
                             className={cn(
                                 item.colSpan,
-                                "group relative bg-white border border-slate-200 rounded-[2rem] p-10 overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl hover:border-purple-300 transition-all duration-500"
+                                "group relative bg-white border border-slate-200 rounded-[2rem] p-10 overflow-hidden cursor-pointer shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.15)] hover:border-purple-300 transition-all duration-500"
                             )}
                         >
                             {/* Abstract Gradient Hover */}

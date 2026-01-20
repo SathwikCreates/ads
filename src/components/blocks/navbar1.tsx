@@ -160,7 +160,7 @@ const Navbar1 = ({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     return (
-        <section className={`py-4 md:py-5 fixed top-0 w-full z-50 transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm supports-[backdrop-filter]:bg-white/60"}`}>
+        <section className={`py-4 md:py-5 fixed top-0 w-full z-[999] transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm supports-[backdrop-filter]:bg-white/60"}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 

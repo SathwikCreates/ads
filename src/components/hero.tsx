@@ -38,7 +38,7 @@ export function Hero() {
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="block"
                         >
-                            Automate Your
+                            Automate Your&nbsp;
                         </motion.span>
                         <motion.span
                             initial={{ y: 100, opacity: 0 }}
