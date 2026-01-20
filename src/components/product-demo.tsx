@@ -102,7 +102,7 @@ export function ProductDemo() {
                                                 </div>
                                                 <div className="text-2xl md:text-3xl text-white font-semibold tracking-tight">{stat.val}</div>
                                                 <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-                                                    <div className="h-full bg-purple-500 rounded-full" style={{ width: `${Math.random() * 40 + 40}%` }} />
+                                                    <div className="h-full bg-purple-500 rounded-full" style={{ width: `${(i * 33) % 40 + 40}%` }} />
                                                 </div>
                                             </div>
                                         ))}
@@ -115,11 +115,10 @@ export function ProductDemo() {
                                         </div>
                                         <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 flex items-end px-4 md:px-6 gap-1">
                                             {[...Array(24)].map((_, i) => {
-                                                const h = 20 + Math.random() * 60;
                                                 return (
                                                     <div key={i} className="flex-1 flex flex-col justify-end gap-1 group/bar">
-                                                        <div className="w-full bg-purple-500/20 group-hover/bar:bg-purple-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${h * 0.6}%` }} />
-                                                        <div className="w-full bg-blue-500/20 group-hover/bar:bg-blue-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${h}%` }} />
+                                                        <div className="w-full bg-purple-500/20 group-hover/bar:bg-purple-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${20 + ((i * 13) % 60)}%` }} />
+                                                        <div className="w-full bg-blue-500/20 group-hover/bar:bg-blue-500/40 transition-colors rounded-sm ml-0.5" style={{ height: `${30 + ((i * 7) % 50)}%` }} />
                                                     </div>
                                                 )
                                             })}
