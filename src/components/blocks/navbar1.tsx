@@ -160,7 +160,7 @@ const Navbar1 = ({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     return (
-        <section className={`py-4 md:py-5 fixed top-0 w-full z-[999] transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm supports-[backdrop-filter]:bg-white/60"}`}>
+        <section className={`py-4 md:py-5 fixed top-0 w-full z-[999] transition-all duration-300 ${isMobileMenuOpen ? "bg-white h-screen" : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none supports-[backdrop-filter]:bg-white/60 md:supports-[backdrop-filter]:bg-transparent"}`}>
             <div className="container mx-auto px-6 pointer-events-auto">
                 <nav className="flex items-center justify-between">
 
@@ -179,7 +179,7 @@ const Navbar1 = ({
                     </div>
 
                     {/* Center: Capsule Navigation */}
-                    <div className="hidden lg:flex items-center bg-slate-100/50 backdrop-blur-md border border-slate-200/50 rounded-full py-1.5 px-1 shadow-inner">
+                    <div className="hidden lg:flex items-center rounded-full py-1.5 px-1">
                         <NavigationMenu>
                             <NavigationMenuList className="gap-2">
                                 {menu.map((item) => renderMenuItem(item))}
