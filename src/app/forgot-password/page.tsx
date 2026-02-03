@@ -1,22 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2, ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { requestPasswordReset } from "@/actions/auth";
 
 export default function ForgotPasswordPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isSent, setIsSent] = useState(false);
+    const [message, dispatch, isPending] = useActionState(requestPasswordReset, undefined);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        const formData = new FormData(e.currentTarget);
+        await dispatch(formData);
         setIsLoading(false);
         setIsSent(true);
     };
@@ -48,11 +50,11 @@ export default function ForgotPasswordPage() {
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="email">Work Email</Label>
-                                <Input id="email" type="email" placeholder="name@company.com" required className="bg-slate-50 mx-0" />
+                                <Input id="email" name="email" type="email" placeholder="name@company.com" required className="bg-slate-50 mx-0" />
                             </div>
 
-                            <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold h-10" disabled={isLoading}>
-                                {isLoading ? (
+                            <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold h-10" disabled={isLoading || isPending}>
+                                {isLoading || isPending ? (
                                     <>
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         Sending...
@@ -63,6 +65,9 @@ export default function ForgotPasswordPage() {
                                     </>
                                 )}
                             </Button>
+                            {message && (
+                                <div className="text-xs text-slate-500">{message}</div>
+                            )}
                         </form>
                     </>
                 ) : (

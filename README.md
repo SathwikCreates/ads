@@ -46,6 +46,21 @@
 4.  **Open locally:**
     Navigate to [http://localhost:3000](http://localhost:3000).
 
+5.  **Backend setup (Prisma):**
+    ```bash
+    npx prisma db push
+    ```
+    This updates the local SQLite database with the new backend tables.
+
+6.  **Required environment variables:**
+    Update `.env` with:
+    - `OPENAI_API_KEY` (for AI generation)
+    - `TOKEN_ENCRYPTION_KEY` (32 bytes base64)
+    - `RESEND_API_KEY` + `SMTP_FROM` (recommended) OR `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` (email verification + password reset)
+    - `APP_URL` (for verification/reset links)
+    - OAuth credentials per platform (Google/Meta/TikTok)
+    - Optional `USE_MOCK_PLATFORM_DATA=true` for demo data
+
 ## 📂 Project Structure
 
 - `/src/app` - App Router pages (Mental model: URL structure).
@@ -53,6 +68,28 @@
   - `/blocks` - Large distinctive sections (Hero, Navbar, Logos).
   - `/ui` - Atomic shadcn/ui components.
 - `/public` - Static assets (images).
+
+## 🧩 Backend Services (API)
+
+The backend is implemented via Next.js App Router API routes:
+
+- `GET /api/integrations` - list connected ad accounts
+- `GET /api/integrations/:platform/connect` - get OAuth connect URL
+- `GET /api/integrations/:platform/callback` - OAuth callback handler
+- `POST /api/integrations/:platform/disconnect` - disconnect an account
+- `POST /api/sync/run` - run data sync for connected accounts
+- `GET /api/analytics/summary` - aggregate metrics for dashboard
+- `GET /api/analytics/series` - time series metrics
+- `GET /api/campaigns` - list campaigns
+- `POST /api/ai/creative` - AI ad creative + optional image/video
+- `POST /api/ai/insights` - generate AI insight for a campaign
+- `POST /api/ai/coach` - AI coach chat endpoint
+
+## 🔐 Auth Features
+
+- Email/password signup with verification email
+- Password reset flow
+- Social login (Google + Facebook)
 
 ## 🎨 Theme System
 
