@@ -2,6 +2,7 @@ import { db } from "@/lib/db"
 import { decryptString } from "@/lib/crypto"
 import type { Platform } from "@/lib/platforms/config"
 import { fetchGoogleCampaigns, fetchGoogleMetrics } from "@/lib/platforms/google"
+import { fetchMetaCampaigns, fetchMetaMetrics } from "@/lib/platforms/meta"
 
 type SyncOptions = {
     userId: string
@@ -134,7 +135,11 @@ async function fetchPlatformCampaignsResult(
     if (platform === "google" && accessToken) {
         return fetchGoogleCampaigns(accessToken, customerId)
     }
-    // Add other platforms here (meta, tiktok, etc)
+    if ((platform === "meta" || platform === "instagram") && accessToken) {
+        // For Meta, customerId (platformAccountId) IS the Ad Account ID
+        return fetchMetaCampaigns(accessToken, customerId)
+    }
+    // Add other platforms here (tiktok, etc)
     throw new Error(`Platform API client not configured for ${platform}`)
 }
 
@@ -148,6 +153,9 @@ async function fetchPlatformMetricsResult(
 ): Promise<MetricPayload[]> {
     if (platform === "google" && accessToken) {
         return fetchGoogleMetrics(accessToken, customerId, platformCampaignId, startDate, endDate)
+    }
+    if ((platform === "meta" || platform === "instagram") && accessToken) {
+        return fetchMetaMetrics(accessToken, platformCampaignId, startDate, endDate)
     }
     // Add other platforms here
     throw new Error(`Platform metrics API not configured for ${platform}`)
