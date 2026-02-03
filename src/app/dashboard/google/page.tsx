@@ -1,40 +1,5 @@
-'use client'
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { OverviewChart } from "@/components/dashboard/overview-chart"
-import { Button } from "@/components/ui/button"
+import { PlatformDashboard, platformConfigs } from "@/components/dashboard/platform-dashboard"
 
 export default function GoogleDashboardPage() {
-    return (
-        <div className="flex-1 space-y-4 p-8 pt-6">
-            <div className="flex items-center justify-between space-y-2">
-                <h2 className="text-3xl font-bold tracking-tight">Google Ads</h2>
-                <Button className="bg-yellow-600 hover:bg-yellow-700 text-white">
-                    Connect Google Account
-                </Button>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                <Card className="bg-neutral-900 border-neutral-800 text-white">
-                    <CardHeader><CardTitle>Impressions</CardTitle></CardHeader>
-                    <CardContent><div className="text-2xl font-bold">2.1M</div></CardContent>
-                </Card>
-                <Card className="bg-neutral-900 border-neutral-800 text-white">
-                    <CardHeader><CardTitle>Conversions</CardTitle></CardHeader>
-                    <CardContent><div className="text-2xl font-bold">3,450</div></CardContent>
-                </Card>
-                <Card className="bg-neutral-900 border-neutral-800 text-white">
-                    <CardHeader><CardTitle>Cost / Conv.</CardTitle></CardHeader>
-                    <CardContent><div className="text-2xl font-bold">$12.50</div></CardContent>
-                </Card>
-            </div>
-            <Card className="bg-neutral-900 border-neutral-800 text-white">
-                <CardHeader>
-                    <CardTitle>Performance Over Time</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <OverviewChart />
-                </CardContent>
-            </Card>
-        </div>
-    )
+    return <PlatformDashboard config={platformConfigs.google} />
 }

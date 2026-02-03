@@ -2,7 +2,12 @@
 
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from "recharts"
 
-const data = [
+type ChartPoint = {
+    name: string
+    total: number
+}
+
+const fallbackData: ChartPoint[] = [
     { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
     { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
     { name: "Mar", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -12,10 +17,11 @@ const data = [
     { name: "Jul", total: Math.floor(Math.random() * 5000) + 1000 },
 ]
 
-export function OverviewChart() {
+export function OverviewChart({ data }: { data?: ChartPoint[] }) {
+    const series = data && data.length ? data : fallbackData
     return (
         <ResponsiveContainer width="100%" height={350}>
-            <AreaChart data={data}>
+            <AreaChart data={series}>
                 <defs>
                     <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#fff" stopOpacity={0.3} />
