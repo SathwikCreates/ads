@@ -1,6 +1,7 @@
 import { db } from "@/lib/db"
 import { decryptString } from "@/lib/crypto"
 import type { Platform } from "@/lib/platforms/config"
+import { fetchGoogleCampaigns, fetchGoogleMetrics } from "@/lib/platforms/google"
 
 type SyncOptions = {
     userId: string
@@ -51,10 +52,14 @@ async function syncAccount(
         ? decryptString(account.accessTokenEncrypted)
         : null
 
-    const useMock = process.env.USE_MOCK_PLATFORM_DATA === "true" || !accessToken
+    // For Google, we need the customer_id. We'll fallback to using platformAccountId 
+    // or assume the account.platformAccountId holds the Google Customer ID (XXX-XXX-XXXX)
+    const customerId = account.platformAccountId || ""
+
+    const useMock = process.env.USE_MOCK_PLATFORM_DATA === "true" || (!accessToken && !process.env.GOOGLE_ADS_DEVELOPER_TOKEN)
     const campaigns = useMock
         ? buildMockCampaigns(platform)
-        : await fetchPlatformCampaigns(platform, accessToken)
+        : await fetchPlatformCampaignsResult(platform, accessToken, customerId)
 
     for (const campaign of campaigns) {
         const dbCampaign = await db.campaign.upsert({
@@ -78,7 +83,7 @@ async function syncAccount(
 
         const metrics = useMock
             ? buildMockMetrics(startDate, endDate)
-            : await fetchPlatformMetrics(platform, accessToken, campaign.platformCampaignId, startDate, endDate)
+            : await fetchPlatformMetricsResult(platform, accessToken, customerId, campaign.platformCampaignId, startDate, endDate)
 
         for (const metric of metrics) {
             await db.campaignMetric.upsert({
@@ -121,28 +126,31 @@ type MetricPayload = {
     conversions: number
 }
 
-async function fetchPlatformCampaigns(
+async function fetchPlatformCampaignsResult(
     platform: Platform,
-    accessToken: string,
+    accessToken: string | null,
+    customerId: string,
 ): Promise<CampaignPayload[]> {
-    void platform
-    void accessToken
-    throw new Error("Platform API client not configured. Set USE_MOCK_PLATFORM_DATA=true for demo.")
+    if (platform === "google" && accessToken) {
+        return fetchGoogleCampaigns(accessToken, customerId)
+    }
+    // Add other platforms here (meta, tiktok, etc)
+    throw new Error(`Platform API client not configured for ${platform}`)
 }
 
-async function fetchPlatformMetrics(
+async function fetchPlatformMetricsResult(
     platform: Platform,
-    accessToken: string,
+    accessToken: string | null,
+    customerId: string,
     platformCampaignId: string,
     startDate: Date,
     endDate: Date,
 ): Promise<MetricPayload[]> {
-    void platform
-    void accessToken
-    void platformCampaignId
-    void startDate
-    void endDate
-    throw new Error("Platform API client not configured. Set USE_MOCK_PLATFORM_DATA=true for demo.")
+    if (platform === "google" && accessToken) {
+        return fetchGoogleMetrics(accessToken, customerId, platformCampaignId, startDate, endDate)
+    }
+    // Add other platforms here
+    throw new Error(`Platform metrics API not configured for ${platform}`)
 }
 
 function buildMockCampaigns(platform: Platform): CampaignPayload[] {
